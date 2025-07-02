@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import FilterMenu from "@/components/FilterMenu";
 import JobList from "@/components/JobList";
 import Navbar from "@/components/Navbar";
