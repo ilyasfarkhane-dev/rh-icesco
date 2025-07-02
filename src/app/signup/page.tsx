@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const steps = [
   "Personal Info",
@@ -23,6 +24,7 @@ export default function SignupPage() {
     skills: "",
     cv: null as File | null,
   });
+  const router = useRouter();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -33,6 +35,10 @@ export default function SignupPage() {
   }
   function prev() {
     if (step > 0) setStep(step - 1);
+  }
+  function handleSubmit() {
+    // You can add form validation or API call here if needed
+    router.push("/process");
   }
 
   return (
@@ -119,7 +125,7 @@ export default function SignupPage() {
                 <div><span className="font-semibold">Skills:</span> {form.skills}</div>
                 <div><span className="font-semibold">CV:</span> {form.cv ? form.cv.name : 'Not uploaded'}</div>
               </div>
-              <Button className="bg-[#0e7378] hover:bg-[#18816b] text-white w-full">Submit Application</Button>
+              <Button className="bg-[#0e7378] hover:bg-[#18816b] text-white w-full" onClick={handleSubmit}>Submit Application</Button>
               <Button type="button" variant="outline" className="border-[#0e7378] text-[#0e7378] mt-2" onClick={prev}>Previous</Button>
             </div>
           )}
