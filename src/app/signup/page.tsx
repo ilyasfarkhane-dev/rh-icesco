@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import { CheckCircle, Circle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const steps = [

@@ -1,6 +1,7 @@
 'use client';
 // Minimal shadcn/ui-style carousel using radix primitives and Tailwind
 import * as React from "react";
+import Image from "next/image";
 
 const images = [
 	{
@@ -24,10 +25,12 @@ export function Carousel() {
 
 	return (
 		<div className="relative w-full h-[320px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex items-center justify-center bg-gray-50">
-			<img
+			<Image
 				src={images[current].src}
 				alt={images[current].alt}
+				fill
 				className="object-cover object-center w-full h-full transition-all duration-500"
+				priority
 			/>
 			<button
 				onClick={prev}

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Circle } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const steps = [
@@ -180,10 +180,9 @@ const steps = [
 ];
 
 export default function ProcessPage() {
-	const router = useRouter();
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedStep, setSelectedStep] = useState<number>(0);
-	const [userInfo, setUserInfo] = useState<any>({});
+	const [userInfo, setUserInfo] = useState<unknown>({});
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -248,7 +247,7 @@ export default function ProcessPage() {
 					variant="outline"
 					className="border-[#0e7378] text-[#0e7378] mt-8 w-fit mx-auto"
 				>
-					<a href="/">Retour à l'accueil</a>
+					<Link href="/">Retour &agrave; l&apos;accueil</Link>
 				</Button>
 			</main>
 		</div>
