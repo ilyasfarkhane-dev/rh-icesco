@@ -182,15 +182,12 @@ const steps = [
 export default function ProcessPage() {
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedStep, setSelectedStep] = useState<number>(0);
-	const [userInfo, setUserInfo] = useState<unknown>({});
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			const step = parseInt(localStorage.getItem("currentStep") || "0", 10);
 			setCurrentStep(step);
 			setSelectedStep(step);
-			const info = localStorage.getItem("userInfo");
-			if (info) setUserInfo(JSON.parse(info));
 		}
 	}, []);
 
